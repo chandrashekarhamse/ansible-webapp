@@ -2,7 +2,7 @@ Simple Web Application
 
 STEPS TO RUN
 
-1. Have the ansible setup and select the target node.
+1. Have the ansible setup and select the target nodes.
 
 2. Edit the Host and inventory files according to your hosts
 
