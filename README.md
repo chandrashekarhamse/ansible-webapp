@@ -14,7 +14,9 @@ STEPS TO RUN
 
    Note: if you are running on VM's on AWS open the port 5000 from the security group.
    
-   navigate: http://<IP>:5000
+   navigate: 
+             http://<IP>:5000
+   
              http://<IP>:5000/how%are%you
              
              
