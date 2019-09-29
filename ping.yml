@@ -1,0 +1,5 @@
+-
+  hosts: tomcat,docker
+  tasks:
+  - name: perform a ping test
+    ping:
