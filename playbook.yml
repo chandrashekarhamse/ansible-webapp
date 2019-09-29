@@ -11,44 +11,44 @@
     - python-pip
     - python-mysqldb
 
-   - name: Install and Configure Database
-     apt: name={{ item }} state=installed
-     with_items:
-     - mysql-server
-     - mysql-client
+  - name: Install and Configure Database
+    apt: name={{ item }} state=installed
+    with_items:
+    - mysql-server
+    - mysql-client
 
-   - name: Start Database Service
-     service:
+  - name: Start Database Service
+    service:
       name: mysql
       state: started
       enable: yes
 
-   - name: Create database
-     mysql_db:
-       name: employee_db
-       state: present
+  - name: Create database
+    mysql_db:
+      name: employee_db
+      state: present
 
-   - name: create database users
-     mysql_user:
-       name: db_user
-       password: Passw0rd
-       priv: '*.*:ALL'
-       state: present
-       host: '%'
+  - name: create database users
+    mysql_user:
+      name: db_user
+      password: Passw0rd
+      priv: '*.*:ALL'
+      state: present
+      host: '%'
 
-   - name: Install Python Flask dependency
-     pip:
-       name: "{{ item }}"
-       state: present
-       with_items:
-       - flask
-       - flask-mysql
+  - name: Install Python Flask dependency
+    pip:
+      name: "{{ item }}"
+      state: present
+      with_items:
+      - flask
+      - flask-mysql
 
-    - name: copy the source code
-      copy:
-        src: app.py
-        dest: /opt/app.py
+  - name: copy the source code
+    copy:
+      src: app.py
+      dest: /opt/app.py
 
-    - name: start the webserver
-      shell: FLASK_APP=/opt/app.py nohup flask run --host=0.0.0.0 &
+  - name: start the webserver
+    shell: FLASK_APP=/opt/app.py nohup flask run --host=0.0.0.0 &
 
